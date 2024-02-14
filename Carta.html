@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jaqueline</title>
+
+</head>
+<body>
+
+
+
+<div class="valentines-day">
+  <div class="envelope"></div>
+  <div class="heart"></div>
+  <div class="text">Mi  <br>Dormilona <br>Hermosa</div>
+  <div class="front"></div>
+</div>
+
+<div id="card">
+  <div class="side one"></div>
+  <div class="side two">
+    <h2>Jaqueline Ramirez</h2>
+    <p>P.D.: Darwin Charuc </p>
+    <p> Me enamore de ti mi dormilona hermosa, Por tu carisma, tu sencilles, por tu amor, por esa sonrisa que me sacas siempre en cada mensaje, quiero ser parte de tu vida, parte de tus logros, quiero ser el chico que te abraze con fuerza cuando la tristeza te enbargue, recordantote que no estas sola.</p>
+    <p>Con esta mano yo sostendré tus anhelos, tu copa jamás estara vacía, por que yo seré tu vino, con esta vela alumbrare tu camino porla oscuridad y con este anillo, Que seas mi novia💌</p>
+  </div>
+</div>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+
+#card {
+   height:500px;
+   width:800px;
+   margin:5em auto;
+   position: fixed;
+  top: -15px;
+   left: 25%;
+   display:flex;
+   visibility:hidden;
+}
+#card h2 {
+   font-size:3em;
+   margin:0;
+   color:pink;
+   text-align: center;
+}
+#card p {
+   font-size: 1.5em;
+   text-align: justify;
+   padding-left: 30px; /* Espacio en blanco a la izquierda */
+   padding-right: 30px; /* Espacio en blanco a la derecha */
+}
+
+
+.side {
+   background:#eee;
+   height:550px;
+   width:400px;
+/*    border:1px solid red; */
+   padding:10px;
+}
+.side.one {
+   width:320px;
+   transform:skew(10deg,20deg);
+   background:linear-gradient(90deg, #fff, #fff 40%, #ddd);
+}
+.side.two {
+   transform:skew(10deg,-15deg);
+   background:linear-gradient(-90deg, #fff, #fff 40%, #f0f0f0);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(pio.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: 'Sacramento', cursive;
+ }
+
+ .valentines-day {
+   position: relative;
+   cursor: pointer;
+ }
+
+ .envelope {
+   position: relative;
+   filter: drop-shadow(0 0 25px rgba(0,0,0,.3));
+ }
+
+ .envelope:before {
+   content:"";
+   position: absolute;
+   width:254px;
+   height:254px;
+   background-color: #9bfab0;
+   transform: rotate(-45deg);
+   border-radius: 0 15px 0 0;
+   left:-37px;
+   top:-82px;
+ }
+
+ .envelope:after {
+   content:"";
+   position: absolute;
+   background-color: #d0fdd7;
+   width:360px;
+   height:225px;
+   left:-90px;
+   top:45px;
+ }
+
+ .heart {
+   position: relative;
+   background-color: #7cdaf9;
+   display: inline-block;
+   height: 180px;
+   top:50px;
+   left:0;
+   transform: rotate(-45deg);
+   width:180px;
+   filter: drop-shadow(0 -10px 25px rgba(0,0,0,.3));
+   transition: .5s;
+ }
+
+ .heart:before, .heart:after {
+   content:"";
+   background-color: #7cdaf9;
+   border-radius:50%;
+   height: 180px;
+   width: 180px;
+   position: absolute;
+   }
+
+ .heart:before {
+   top:-100px;
+   left:0;}
+
+ .heart:after {
+   left:100px;
+   top:0;}
+
+ .front {
+   position: absolute;
+   width:0;
+   height:0;
+   border-right: 190px solid #9bfab0;
+   border-top: 113px solid transparent;
+   border-bottom: 113px solid transparent;
+   top:44px;
+   left:80px;
+   z-index:4;
+ }
+
+ .front:before {
+   content:"";
+   position: absolute;
+   width:0;
+   height:0;
+   border-left: 190px solid #9bfab0;
+   border-top: 113px solid transparent;
+   border-bottom: 113px solid transparent;
+   top:-113px;
+   left:-170px;
+ }
+
+ .front:after {
+   width:0;
+   height:0;
+   position: absolute;
+   content:"";
+   border-bottom: 150px solid #d0fdd7;
+   border-right:180px solid transparent;
+   border-left: 180px solid transparent;
+   top:-36px;
+   left:-170px;
+ }
+
+ .text {
+   position: absolute;
+   font-family:comic ;
+   letter-spacing:8px;
+   text-align: center;
+   color: white;
+   z-index:2;
+   top:80px;
+   left:15px;
+   transition: .5s;
+ }
+
+ .valentines-day:hover .heart {
+   transform: translateY(-50px) rotate(-45deg);
+ }
+
+ .valentines-day:hover .text {
+   transform: translateY(-50px);
+ }</style>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script >
+$(document).ready(function(){
+      // Al cargar la página, ocultamos las cortinas
+      $('.left-curtain').css('width', '0%');
+      $('.right-curtain').css('width', '0%');
+
+      $('.valentines-day').click(function(){
+        // Animación de desvanecimiento de los elementos del sobre
+        $('.envelope').css({'animation':'fall 3s linear 1', '-webkit-animation':'fall 3s linear 1'});
+        $('.envelope').fadeOut(800, function() {
+          // Ocultar elementos dentro de .valentines-day
+          $('.valentines-day .heart, .valentines-day .text, .valentines-day .front').hide();
+
+
+          // Hacer visible la carta con una animación ondulante
+          $('#card').css({'visibility':'visible', 'opacity': 0, 'transform': 'scale(0.1)'});
+          $('#card').animate({'opacity': 1}, {duration: 1000, step: function(now, fx) {
+            var scale = 1 + Math.sin(now * Math.PI) * 0.1; // Calculamos la escala basada en la función seno
+            $(this).css('transform', 'scale(' + scale + ')');
+          }}); // Animación de ondulación
+        });
+      });
+    });</script>
+
+</body>
+</html>
